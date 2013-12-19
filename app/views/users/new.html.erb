@@ -1,0 +1,37 @@
+<h1>Formulário de Cadastro</h1>
+
+<%= form_for(@user) do |f| %>
+<p>
+	<%= f.label :name %>
+	<%= f.text_field :name %>
+</p>
+<p>
+	<%= f.label :email %>
+	<%= f.text_field :email %>
+</p>
+<p>
+	<%= f.label :address %>
+	<%= f.text_field :address %>
+</p>
+<p>
+	<%= f.label :phone %>
+	<%= f.text_field :phone %>
+</p>
+<p>
+	<%= f.label :operator %>
+	<%= f.text_field :operator %>
+</p>
+<p>
+	<%= f.label :date_of_birth %>
+	<%= f.text_field :date_of_birth %>
+</p>
+<p>
+	<%= f.label :gcem_id %>
+	<%= f.collection_select (:gcem_id, gcem.order('gcem'), :id, :nome, {:prompt => true})%>  
+</p>
+<p>
+	<%= f.submit %>
+</p>
+
+
+<% end %>
