@@ -27,7 +27,8 @@
 </p>
 <p>
 	<%= f.label :gcem_id %>
-	<%= f.collection_select (:gcem_id, gcem.order('gcem'), :id, :nome, {:prompt => true})%>  
+	<%= f.collection_select(:gcem_id, Gcem.order(:name),
+                                    :id, :name, :prompt => true) %>
 </p>
 <p>
 	<%= f.submit %>
