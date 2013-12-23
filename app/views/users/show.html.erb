@@ -1,7 +1,26 @@
 <h1>Perfil do Usuário</h1>
 
-<% @user.each do |user| %>
-<p><%= user.name %></p>
-<p><%= user.phone %></p>
+
+<p>
+	<strong>Nome:</strong> <%= @user.name %>
+</p>
+<p>
+	<strong>E-mail:</strong> <%= @user.email %>
+</p>
+<p>
+	<strong>Telefone:</strong> <%= @user.phone %>
+</p>
+<p>
+	<strong>Operadora:</strong> <%= @user.operator %>
+</p>
+<p>
+	<strong>Endereço:</strong> <%= @user.address %>
+</p>
+<p>
+	<strong>Data de aniversário:</strong> <%= @user.date_of_birth %>
+</p>
+
+<p>
+	<strong>GCEM:</strong> <%= @user.gcem.name %>
+</p>
 	
-<% end %>
