@@ -1,34 +1,36 @@
 <h1>Perfil do Usuário</h1>
 
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>E-mail</th>
+			<th>Telefone</th>
+			<th>Operadora</th>
+			<th>Endereço</th>
+			<th>Data de Aniversário</th>
+			<th>GCEM</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @user.name %></td>
+			<td><%= @user.email %></td>
+			<td><%= @user.phone %></td>
+			<td><%= @user.operator %></td>
+			<td><%= @user.address %></td>
+			<td><%= @user.date_of_birth %></td>
+			<td><%= @user.gcem.name %></td>
+			<td>
+				<%= link_to "Editar", controller: "users", action: "edit" %>
+				<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => @user},
+	:confirm => "Are you sure you want to delete this item?" %>
+			</td>
+		</tr>
+	</tbody>
+</table>
 
-<p>
-	<strong>Nome:</strong> <%= @user.name %>
-</p>
-<p>
-	<strong>E-mail:</strong> <%= @user.email %>
-</p>
-<p>
-	<strong>Telefone:</strong> <%= @user.phone %>
-</p>
-<p>
-	<strong>Operadora:</strong> <%= @user.operator %>
-</p>
-<p>
-	<strong>Endereço:</strong> <%= @user.address %>
-</p>
-<p>
-	<strong>Data de aniversário:</strong> <%= @user.date_of_birth %>
-</p>
 
-<p>
-	<strong>GCEM:</strong> <%= @user.gcem.name %>
-</p>
 
-<p>
-	<%= link_to "Editar", controller: "users", action: "edit" %>
-</p>
-<p>
-	<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => @user},
-:confirm => "Are you sure you want to delete this item?" %>
-</p>
-	
+
