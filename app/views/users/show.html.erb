@@ -23,4 +23,12 @@
 <p>
 	<strong>GCEM:</strong> <%= @user.gcem.name %>
 </p>
+
+<p>
+	<%= link_to "Editar", controller: "users", action: "edit" %>
+</p>
+<p>
+	<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => @user},
+:confirm => "Are you sure you want to delete this item?" %>
+</p>
 	

@@ -1,0 +1,2 @@
+class GcemsController < ApplicationController
+end
