@@ -5,6 +5,7 @@ class CreateGcems < ActiveRecord::Migration
       t.string :address
       t.string :schedule
       t.string :host
+      t.string :week_day
 
       t.timestamps
     end

@@ -1,0 +1,20 @@
+<h1>Perfil do GCEM</h1>
+<div class="container">
+	<div class="list-group">
+		<a href="#" class="list-group-item active">
+			<strong>Nome: </strong><%= @gcem.name %>
+		</a>
+		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @gcem.address %></a>
+		<a href="#" class="list-group-item"><strong>Horário: </strong><%= @gcem.schedule %></a>
+		<a href="#" class="list-group-item"><strong>Anfitrião: </strong><%= @gcem.host %></a>
+		<a href="#" class="list-group-item"><strong>Dia da semana: </strong><%= @gcem.week_day %></a>
+
+	</div>
+	<hr/>
+	<%= link_to "Voltar", :controller => "gcems", :action => "index" %>
+</div>
+
+
+
+
+

@@ -1,0 +1,47 @@
+<h1>Lista de GCEMS</h1>
+
+
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Endereço</th>
+			<th>Horário</th>
+			<th>Anfitrião</th>
+			<th>Dia da semana</th>
+			<th>Número de membros</th>
+			<th>Ações</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @gcem.each do |gcem| %>
+		<tr>
+			<td><%= gcem.name %></td>
+			<td><%= gcem.address %></td>
+			<td><%= gcem.schedule %></td>
+			<td><%= gcem.host %></td>
+			<td><%= gcem.week_day %></td>
+			<td><%= gcem.user.count %></td>
+			<td>
+				<%= link_to "Remove", gcem, method: :delete, data: { confirm: "Are you sure?" } %>
+				<%= link_to "Editar", action: "edit", id: @gcem %>
+				<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => @gcem},
+				:confirm => "Are you sure you want to delete this item?" %>
+			</td>
+		</tr>
+		
+		<% end %>
+	</tbody>
+	
+
+	
+</table>
+<table class="table">
+	<tr>
+			<td>
+				<%= link_to "Criar novo GCEM", {:controller => "gcems", :action => "new"}, :class => "btn btn-primary dropdown-toggle btn-sm" %>
+			</td>
+		</tr>
+</table>
+
+

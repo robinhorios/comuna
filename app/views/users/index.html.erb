@@ -31,10 +31,19 @@
 				:confirm => "Are you sure you want to delete this item?" %>
 			</td>
 		</tr>
+		
 		<% end %>
 	</tbody>
+	
 
 	
+</table>
+<table class="table">
+	<tr>
+			<td>
+				<%= link_to "Criar novo membro", {:controller => "users", :action => "new"}, :class => "btn btn-primary dropdown-toggle btn-sm" %>
+			</td>
+		</tr>
 </table>
 
 

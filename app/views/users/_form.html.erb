@@ -1,44 +1,63 @@
 <% if @user.errors.any? %>
 <ul>
-  <% @user.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
+	<% @user.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+	<% end %>
 </ul>
 <% end %>
 
-<%= form_for(@user) do |f| %>
-<p>
-	<%= f.label :name %>
-	<%= f.text_field :name %>
-</p>
-<p>
-	<%= f.label :email %>
-	<%= f.text_field :email %>
-</p>
-<p>
-	<%= f.label :address %>
-	<%= f.text_field :address %>
-</p>
-<p>
-	<%= f.label :phone %>
-	<%= f.text_field :phone %>
-</p>
-<p>
-	<%= f.label :operator %>
-	<%= f.text_field :operator %>
-</p>
-<p>
-	<%= f.label :date_of_birth %>
-	<%= f.date_select :date_of_birth, :start_year => 1900, :order => [:day, :month, :year] %>
-</p>
-<p>
-	<%= f.label :gcem_id %>
-	<%= f.collection_select(:gcem_id, Gcem.order(:name),
-                                    :id, :name, :prompt => true) %>
-</p>
-<p>
-	<%= f.submit %>
-</p>
+<div class="container">
+	<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
+	<div class="form-group">
+		<%= f.label :name, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :name, {:class => "form-control"} %>	
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :email, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :email, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :address, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :address, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :phone, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :phone, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :operator, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :operator, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :date_of_birth, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.date_select :date_of_birth, :start_year => 1900, :order => [:day, :month, :year], class: "form-control" %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :gcem_id, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.collection_select(:gcem_id, Gcem.order(:name),
+			:id, :name, :prompt => true) %>
+			<br/>
+			<br/>
+			<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
+		</div>
+	</div>
+
+	<% end %>
+	<hr/>
+	<%= link_to "Voltar", :controller => "users", :action => "index" %>
+</div>
 
 
-<% end %>

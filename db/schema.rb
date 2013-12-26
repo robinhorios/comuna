@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20131217011753) do
     t.string   "address"
     t.string   "schedule"
     t.string   "host"
+    t.string   "week_day"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
