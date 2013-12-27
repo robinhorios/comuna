@@ -9,6 +9,8 @@ class UsersController < ApplicationController
 
 	def new
 		@user = User.new
+		@gcems = Gcem.all
+		@roles = Role.all
 	end
 
 	def create
@@ -44,6 +46,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-      params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_id, :role_id)
+      params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_ids, :role_ids, :gcems, :roles)
     end
 end

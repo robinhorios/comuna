@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(:version => 20131227011448) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "gcems_users", :force => true do |t|
+  create_table "gcems_users", :id => false, :force => true do |t|
     t.integer "gcem_id"
     t.integer "user_id"
   end
@@ -34,14 +34,12 @@ ActiveRecord::Schema.define(:version => 20131227011448) do
     t.datetime "updated_at", :null => false
   end
 
-  create_table "roles_users", :force => true do |t|
+  create_table "roles_users", :id => false, :force => true do |t|
     t.integer "role_id"
     t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|
-    t.integer  "gcem_id"
-    t.integer  "role_id"
     t.string   "name"
     t.datetime "date_of_birth"
     t.string   "address"

@@ -21,7 +21,6 @@
 			<td><%= gcem.schedule %></td>
 			<td><%= gcem.host %></td>
 			<td><%= gcem.week_day %></td>
-			<td><%= gcem.user.count %></td>
 			<td>
 				<%= link_to "Remove", gcem, method: :delete, data: { confirm: "Are you sure?" } %>
 				<%= link_to "Editar", action: "edit", id: @gcem %>
