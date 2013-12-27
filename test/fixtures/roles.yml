@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  member: MyString
+  leader: MyString
+  auxiliary: MyString
+  supervisor: MyString
+  area_supervisor: MyString
+  pastor: MyString
+
+two:
+  member: MyString
+  leader: MyString
+  auxiliary: MyString
+  supervisor: MyString
+  area_supervisor: MyString
+  pastor: MyString

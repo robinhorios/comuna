@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   validates_numericality_of :phone
   validates_uniqueness_of :email
 
-  belongs_to :gcem
+  has_and_belongs_to_many :roles
+  has_and_belongs_to_many :gcems
 end
