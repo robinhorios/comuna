@@ -54,7 +54,7 @@
 	<div class="form-group">
 		<%= f.label :role_id, {:class => "col-sm-2 control-label"} %>
 		<div class="col-sm-10">
-			<%= f.collection_select(:roles, @roles, :id, :name)%>
+			<%= f.select(:role_id, @roles.collect {|s| [s.name, s.id]})%>
 			<br/>
 			<br/>
 			<%= f.submit 'Enviar', :class => 'btn btn-default'  %>

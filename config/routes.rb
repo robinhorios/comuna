@@ -4,5 +4,6 @@ Comuna::Application.routes.draw do
 
   resources :users
   resources :gcems
+  resources :roles
 
 end
