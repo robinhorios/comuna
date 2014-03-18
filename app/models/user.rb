@@ -3,6 +3,7 @@ class User < ActiveRecord::Base
 	include ActiveModel::ForbiddenAttributesProtection
 
 	belongs_to :role
+	has_and_belongs_to_many :gcems
 
 	validates_presence_of :name, :email, message: "Deve ser preenchido"
 	validates_numericality_of :phone

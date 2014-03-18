@@ -10,7 +10,7 @@ class RolesController < ApplicationController
 	def create
 		@role = Role.new(role_params)
 		if @role.save
-			redirect_to(action: "show")
+			redirect_to(action: "show", id: @role)
 		else
 			render "new"
 		end

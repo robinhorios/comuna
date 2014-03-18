@@ -5,6 +5,8 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
+		gcem_user = GcemsUser.where(user_id: @user.id).first
+		gcem_user.nil? ? (@gcem = '') : (@gcem = gcem_user.gcem.name)
 	end
 
 	def new
@@ -46,6 +48,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-      params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_ids, :role_ids, :gcems, :roles)
+      params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_ids, :role_id, :gcems)
     end
 end

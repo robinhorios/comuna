@@ -7,7 +7,7 @@ gem "rails", "~> 4.0.4"
 
 gem 'pg'
 
-
+gem 'rails4_upgrade'
 
 # Gems used only for assets and not required
 # in production environments by default.

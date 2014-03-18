@@ -9,35 +9,46 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140317214327) do
+ActiveRecord::Schema.define(version: 20140318195128) do
 
-  create_table "gcems", :force => true do |t|
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "gcems", force: true do |t|
     t.string   "name"
     t.string   "address"
     t.string   "schedule"
     t.string   "host"
     t.string   "week_day"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "roles", :force => true do |t|
+  create_table "gcems_users", force: true do |t|
+    t.integer "gcem_id"
+    t.integer "user_id"
+  end
+
+  add_index "gcems_users", ["gcem_id"], name: "index_gcems_users_on_gcem_id", using: :btree
+  add_index "gcems_users", ["user_id"], name: "index_gcems_users_on_user_id", using: :btree
+
+  create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "users", :force => true do |t|
+  create_table "users", force: true do |t|
     t.string   "name"
     t.datetime "date_of_birth"
     t.string   "address"
     t.integer  "phone"
     t.string   "operator"
     t.string   "email"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
     t.integer  "role_id"
   end
 
