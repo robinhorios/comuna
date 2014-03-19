@@ -3,6 +3,10 @@ class UsersController < ApplicationController
 		@user = User.all
 	end
 
+	def get_gcem_name(id)
+		gcem_user = GcemsUser.all.where(user_id: id).last.gcem.name
+	end
+
 	def show
 		@user = User.find(params[:id])
 		gcem_user = GcemsUser.where(user_id: @user.id).first
@@ -40,14 +44,14 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-      @user = User.find(params[:id])
-      @user.destroy
-      redirect_to users_path, id: @user
-   end
+		@user = User.find(params[:id])
+		@user.destroy
+		redirect_to users_path, id: @user
+	end
 
 	private
 
 	def user_params
-      params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_ids, :role_id, :gcems)
-    end
+		params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :gcem_ids, :role_id, :gcems)
+	end
 end
