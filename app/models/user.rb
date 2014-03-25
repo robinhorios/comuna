@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
 	belongs_to :role
 	has_and_belongs_to_many :gcems
+	has_and_belongs_to_many :events
 
 	validates_presence_of :name, :email, message: "Deve ser preenchido"
 	validates_numericality_of :phone

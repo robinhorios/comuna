@@ -3,8 +3,6 @@ class UsersController < ApplicationController
 		@user = User.all
 	end
 
-
-
 	def show
 		@user = User.find(params[:id])
 		gcem_user = GcemsUser.where(user_id: @user.id).first
