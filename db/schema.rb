@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20140320171604) do
     t.string   "schedule"
     t.string   "host"
     t.string   "week_day"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "gcems_users", force: true do |t|
@@ -50,8 +50,8 @@ ActiveRecord::Schema.define(version: 20140320171604) do
 
   create_table "roles", force: true do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|
@@ -61,8 +61,8 @@ ActiveRecord::Schema.define(version: 20140320171604) do
     t.integer  "phone"
     t.string   "operator"
     t.string   "email"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "role_id"
   end
 
