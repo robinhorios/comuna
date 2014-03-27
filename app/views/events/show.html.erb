@@ -1,0 +1,18 @@
+<h1>Evento</h1>
+<div class="container">
+	<div class="list-group">
+		<a href="#" class="list-group-item active">
+			<strong>Nome: </strong><%= @event.name %>
+		</a>
+		<a href="#" class="list-group-item"><strong>Horário: </strong><%= @event.schedule %></a>
+		<a href="#" class="list-group-item"><strong>Dia da semana: </strong><%= @event.event_day %></a>
+
+	</div>
+	<hr/>
+	<%= link_to "Voltar", :controller => "events", :action => "index" %>
+</div>
+
+
+
+
+

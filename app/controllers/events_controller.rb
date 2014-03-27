@@ -12,12 +12,17 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(params[:event])
+		@event = Event.new(events_params)
 		
 		if @event.save
 			redirect_to(action: "show", id: @event)
 		else
 			render action: "new"
 		end
+	end
+
+	private
+	def events_params
+		params.require(:event).permit(:name, :schedule, :event_day)
 	end
 end
