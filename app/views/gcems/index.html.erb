@@ -23,8 +23,8 @@
 			<td><%= gcem.week_day %></td>
 			<td>
 				<%= link_to "Remove", gcem, method: :delete, data: { confirm: "Are you sure?" } %>
-				<%= link_to "Editar", action: "edit", id: @gcem %>
-				<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => @gcem},
+				<%= link_to "Editar", action: "edit", id: gcem.id %>
+				<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => gcem.id},
 				:confirm => "Are you sure you want to delete this item?" %>
 			</td>
 		</tr>

@@ -23,7 +23,7 @@ class GcemsController < ApplicationController
 	end
 
 	def edit
-		@gcem = Gcem.new(params[:id])
+		@gcem = Gcem.find(params[:id])
 	end
 
 	def update

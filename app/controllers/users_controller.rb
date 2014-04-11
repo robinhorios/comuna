@@ -26,8 +26,9 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		raise
 		@user = User.find(params[:id])
+		@gcems = Gcem.all
+		@roles = Role.all
 	end
 
 	def update
