@@ -5,4 +5,6 @@ Comuna::Application.routes.draw do
   resources :gcems
   resources :roles
   resources :events
+  resources :reports
+  resources :events_user
 end
