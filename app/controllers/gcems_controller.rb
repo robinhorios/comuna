@@ -45,6 +45,6 @@ class GcemsController < ApplicationController
 
 	private
 	def gcems_params
-		params.require(:gcem).permit(:name, :address, :schedule, :host, :week_day)
+		params.require(:gcem).permit(:name, :address, :schedule, :host, :week_day, :user_ids)
 	end
 end

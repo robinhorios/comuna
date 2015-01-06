@@ -6,6 +6,10 @@
 		</a>
 		<a href="#" class="list-group-item"><strong>Horário: </strong><%= @event.schedule %></a>
 		<a href="#" class="list-group-item"><strong>Dia da semana: </strong><%= @event.event_day %></a>
+		<p>Nomes</p>
+		<% @event.users.each do |user| %>
+			<a href="#" class="list-group-item"><strong>Nome: </strong><%= user.name %></a>
+		<% end %>
 
 	</div>
 	<hr/>

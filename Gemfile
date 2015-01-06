@@ -23,8 +23,10 @@ end
 
 group :development do
   gem 'guard-livereload', require: false
+  gem "better_errors"
 end
 
+gem "binding_of_caller"
 gem 'jquery-rails'
 
 
