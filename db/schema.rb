@@ -16,6 +16,24 @@ ActiveRecord::Schema.define(version: 20140320171604) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "cells", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "schedule"
+    t.string   "host"
+    t.string   "week_day"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cells_users", force: true do |t|
+    t.integer "cell_id"
+    t.integer "user_id"
+  end
+
+  add_index "cells_users", ["cell_id"], name: "index_cells_users_on_cell_id", using: :btree
+  add_index "cells_users", ["user_id"], name: "index_cells_users_on_user_id", using: :btree
+
   create_table "events", force: true do |t|
     t.string "name"
     t.string "event_day"
@@ -29,24 +47,6 @@ ActiveRecord::Schema.define(version: 20140320171604) do
 
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
   add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
-
-  create_table "gcems", force: true do |t|
-    t.string   "name"
-    t.string   "address"
-    t.string   "schedule"
-    t.string   "host"
-    t.string   "week_day"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "gcems_users", force: true do |t|
-    t.integer "gcem_id"
-    t.integer "user_id"
-  end
-
-  add_index "gcems_users", ["gcem_id"], name: "index_gcems_users_on_gcem_id", using: :btree
-  add_index "gcems_users", ["user_id"], name: "index_gcems_users_on_user_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"

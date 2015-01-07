@@ -1,0 +1,42 @@
+<h1>Perfil da Célula <%= @cell.name %></h1>
+<div class="container">
+	<div class="list-group">
+		<a href="#" class="list-group-item active">
+			<strong>Dados: </strong>
+		</a>
+		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @cell.address %></a>
+		<a href="#" class="list-group-item"><strong>Horário: </strong><%= @cell.schedule %></a>
+		<a href="#" class="list-group-item"><strong>Anfitrião: </strong><%= @cell.host %></a>
+		<a href="#" class="list-group-item"><strong>Dia da semana: </strong><%= @cell.week_day %></a>
+		
+
+	</div>
+
+	<div class="list-group">
+		<a href="#" class="list-group-item active">
+			<strong>Membros(as): </strong>
+		</a>
+
+		<% @cell.users.each do |user| %>
+			<% if user.role.name == "Supervisor" %>
+				<a href="#" class="list-group-item"><strong>Supervisor(a): </strong><%= user.name %></a>
+			<% end %>
+			<% if user.role.name == "Líder" %>
+				<a href="#" class="list-group-item"><strong>Líder: </strong><%= user.name %></a>
+			<% end %>
+			<% if user.role.name == "Auxiliar" %>
+				<a href="#" class="list-group-item"><strong>Auxiliar: </strong><%= user.name %></a>
+			<% end %>
+			<% if user.role.name == "Membro" %>
+				<a href="#" class="list-group-item"><strong>Membro(a): </strong><%= user.name %></a>
+			<% end %>
+		<% end %>
+	</div>
+	<hr/>
+	<%= link_to "Voltar", :controller => "cells", :action => "index" %>
+</div>
+
+
+
+
+

@@ -5,19 +5,19 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		gcem_user = GcemsUsers.where(user_id: @user.id).first
-		gcem_user.nil? ? (@gcem = '') : (@gcem = gcem_user.gcem.name)
+		cell_user = CellsUsers.where(user_id: @user.id).first
+		cell_user.nil? ? (@cell = '') : (@cell = cell_user.cell.name)
 	end
 
 	def new
 		@user = User.new
-		@gcems = Gcem.all
+		@cells = Cell.all
 		@roles = Role.all
 	end
 
 	def create
 		@user = User.new(user_params)
-		@gcems = Gcem.all
+		@cells = Cell.all
 		@roles = Role.all
 
 		if @user.save
@@ -29,7 +29,7 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		@gcems = Gcem.all
+		@cells = Cell.all
 		@roles = Role.all
 	end
 
@@ -52,6 +52,6 @@ class UsersController < ApplicationController
 	private
 
 	def user_params
-		params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :role_id, :gcem_ids)
+		params.require(:user).permit(:name, :email, :address, :phone, :operator, :date_of_birth, :role_id, :cell_ids)
 	end
 end

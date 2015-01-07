@@ -11,7 +11,7 @@
 			<th>Endereço</th>
 			<th>Data de Aniversário</th>
 			<th>Encargo</th>
-			<th>GCEM</th>
+			<th>Célula</th>
 			<th>Ações</th>
 		</tr>
 	</thead>
@@ -25,7 +25,7 @@
 			<td><%= user.address %></td>
 			<td><%= user.date_of_birth %></td>
 			<td><%= user.role.name %></td>
-			<td><%= get_gcem_name(user.id) %></td>
+			<td><%= get_cell_name(user.id) %></td>
 			<td>
 				<%= link_to "Remove", user, method: :delete, data: { confirm: "Are you sure?" } %>
 				<%= link_to "Editar", action: "edit", id: user.id %>

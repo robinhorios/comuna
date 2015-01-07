@@ -1,5 +1,5 @@
 module ApplicationHelper
-	def get_gcem_name(id)
-		gcem_user = GcemsUsers.all.where(user_id: id).first.gcem.name
+	def get_cell_name(id)
+		cell_user = CellsUsers.all.where(user_id: id).first.cell.name
 	end
 end

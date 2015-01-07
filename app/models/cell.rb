@@ -1,4 +1,4 @@
-class Gcem < ActiveRecord::Base
+class Cell < ActiveRecord::Base
 
 	validates :name, :address, :schedule, presence: true 
 

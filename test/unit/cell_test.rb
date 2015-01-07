@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class GcemTest < ActiveSupport::TestCase
+class CellTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
