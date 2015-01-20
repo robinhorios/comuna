@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Comuna</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
+	<title>Comuna</title>
+	<%= stylesheet_link_tag    "application", :media => "all" %>
+	<%= javascript_include_tag "application" %>
+	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
+	<%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<%= yield %>
 
 </body>
 </html>

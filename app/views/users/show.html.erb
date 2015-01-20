@@ -10,7 +10,11 @@
 		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @user.address %></a>
 		<a href="#" class="list-group-item"><strong>Data de nascimento: </strong><%= @user.date_of_birth %></a>
 		<a href="#" class="list-group-item"><strong>Encargo: </strong><%= @user.role.name %></a>
-		<a href="#" class="list-group-item"><strong>Célula: </strong><%= @cell %></a>
+		<br>
+		<p><strong>Células</strong></p>
+		<% @user.cells.each do |cell| %>
+			<a href="#" class="list-group-item"><strong>Nome: </strong><%= cell.name %></a>
+		<% end %>
 
 	</div>
 	<hr/>

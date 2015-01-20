@@ -13,7 +13,7 @@ class EventsController < ApplicationController
 	end
 
 	def create
-		@event = Event.new(events_params)
+		@event = Event.new(event_params)
 		
 		if @event.save
 			redirect_to(action: "show", id: @event)
@@ -24,6 +24,7 @@ class EventsController < ApplicationController
 
 	def edit
 		@event = Event.find(params[:id])
+		@users = User.all
 	end
 
 	def update

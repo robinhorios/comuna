@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 class Cell < ActiveRecord::Base
 
 	validates :name, :address, :schedule, presence: true 

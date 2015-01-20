@@ -18,3 +18,4 @@ class User < ActiveRecord::Base
 			"deve haver ao menos uma célula") if cells.empty?
 	end
 end
+
