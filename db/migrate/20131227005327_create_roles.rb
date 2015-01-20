@@ -6,7 +6,9 @@ class CreateRoles < ActiveRecord::Migration
       t.timestamps
     end
 
+    Role.create! name: 'Visitante'
     Role.create! name: 'Membro'
+    Role.create! name: 'Membro afastado'
     Role.create! name: 'Auxiliar'
     Role.create! name: 'Líder'
     Role.create! name: 'Supervisor'
