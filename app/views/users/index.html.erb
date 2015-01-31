@@ -7,7 +7,6 @@
 			<th>Nome</th>
 			<th>E-mail</th>
 			<th>Telefone</th>
-			<th>Operadora</th>
 			<th>Endereço</th>
 			<th>Data de Aniversário</th>
 			<th>Encargo</th>
@@ -21,8 +20,7 @@
 			<td><%= user.name %></td>
 			<td><%= user.email %></td>
 			<td><%= user.phone %></td>
-			<td><%= user.operator %></td>
-			<td><%= user.address %></td>
+			<td><%= user.street %></td>
 			<td><%= user.date_of_birth %></td>
 			<td><%= user.role.name %></td>
 			<td><%= get_cell_name(user.id) %></td>

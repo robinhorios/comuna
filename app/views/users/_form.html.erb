@@ -18,13 +18,13 @@
 	<div class="form-group">
 		<%= f.label :email, {:class => "col-sm-2 control-label"} %>
 		<div class="col-sm-10">
-			<%= f.text_field :email, {:class => "form-control"} %>
+			<%= f.email_field :email, autofocus: true, class: "form-control"  %>
 		</div>
 	</div>
 	<div class="form-group">
-		<%= f.label :address, {:class => "col-sm-2 control-label"} %>
+		<%= f.label :gender, {:class => "col-sm-2 control-label"} %>
 		<div class="col-sm-10">
-			<%= f.text_field :address, {:class => "form-control"} %>
+			<%= f.text_field :gender, {:class => "form-control"} %>
 		</div>
 	</div>
 	<div class="form-group">
@@ -33,20 +33,66 @@
 			<%= f.text_field :phone, {:class => "form-control"} %>
 		</div>
 	</div>
-	<div class="form-group">
-		<%= f.label :operator, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :operator, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
+		<div class="form-group">
 		<%= f.label :date_of_birth, {:class => "col-sm-2 control-label"} %>
 		<div class="col-sm-10">
 			<%= f.date_select :date_of_birth, :start_year => 1900, :order => [:day, :month, :year], class: "form-control" %>
 		</div>
 	</div>
+	<div class="form-group">
+		<%= f.label :zipcode, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :zipcode, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :street, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :street, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :number, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :number, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :complement, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :complement, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :city, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.text_field :city, {:class => "form-control"} %>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :state, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.select(:state_id, @states.collect {|s| [s.name, s.id]},{}, { :class => 'form-control' })%>
+		</div>
+	</div>
+	<div class="form-group">
+		<%= f.label :password, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+		</div>
+
+	</div>
+	<div class="form-group">
+		<%= f.label :password_confirmation, {:class => "col-sm-2 control-label"} %>
+		<div class="col-sm-10">
+			<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+		</div>
+
+	</div>
 	
 	<div class="form-group">
+		<%= f.label :cell_ids %>
+		<br>
 		<% Cell.all.each do |cell| %>
 		<%= check_box_tag "user[cell_ids][]", cell.id, @user.cell_ids.include?(cell.id), id: dom_id(cell) %>
 		<%= label_tag dom_id(cell), cell.name %><br>
@@ -56,7 +102,7 @@
 	<div class="form-group">
 		<%= f.label :role_id, {:class => "col-sm-2 control-label"} %>
 		<div class="col-sm-10">
-			<%= f.select(:role_id, @roles.collect {|s| [s.name, s.id]})%>
+			<%= f.select(:role_id, @roles.collect {|s| [s.name, s.id]},{}, { :class => 'form-control' })%>
 			<br/>
 			<br/>
 			<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
@@ -66,6 +112,15 @@
 	<hr/>
 	<%= link_to "Voltar", :controller => "users", :action => "index" %>
 </div>
+
+
+
+
+
+
+
+
+
 
 
 

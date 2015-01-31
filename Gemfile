@@ -28,6 +28,7 @@ end
 
 gem "binding_of_caller"
 gem 'jquery-rails'
+gem 'bcrypt-ruby', '~> 3.1.5'
 
 
 # To use ActiveModel has_secure_password

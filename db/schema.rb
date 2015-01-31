@@ -11,14 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140320171604) do
+ActiveRecord::Schema.define(version: 20150131012604) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: true do |t|
+    t.string "name"
+  end
+
   create_table "cells", force: true do |t|
     t.string   "name"
-    t.string   "address"
+    t.string   "street"
+    t.string   "number"
+    t.string   "complement"
+    t.string   "zipcode"
+    t.string   "district"
+    t.string   "city"
+    t.integer  "state_id"
+    t.integer  "categoty_id"
     t.string   "schedule"
     t.string   "host"
     t.string   "week_day"
@@ -54,16 +65,31 @@ ActiveRecord::Schema.define(version: 20140320171604) do
     t.datetime "updated_at"
   end
 
+  create_table "states", force: true do |t|
+    t.string "name"
+    t.string "acronym"
+  end
+
   create_table "users", force: true do |t|
     t.string   "name"
     t.datetime "date_of_birth"
-    t.string   "address"
-    t.integer  "phone"
-    t.string   "operator"
+    t.string   "street"
+    t.string   "number"
+    t.string   "complement"
+    t.string   "zipcode"
+    t.string   "district"
+    t.string   "city"
+    t.integer  "state_id"
+    t.string   "phone"
+    t.string   "gender"
     t.string   "email"
+    t.string   "password"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "role_id"
+    t.datetime "confirmed_at"
+    t.string   "confirmation_token"
   end
 
 end

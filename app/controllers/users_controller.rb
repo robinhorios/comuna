@@ -11,13 +11,16 @@ class UsersController < ApplicationController
 		@user = User.new
 		@cell = Cell.all
 		@roles = Role.all
+		@states = State.all
 	end
 
 	def create
 		@user = User.new(user_params)
 		@roles = Role.all
+		@states = State.all
 		
 		if @user.save
+			Signup.confirm_email(@user).deliver
 			redirect_to(action: "show", id: @user)
 		else
 			render action: "new"
@@ -27,6 +30,7 @@ class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
 		@roles = Role.all
+		@states = State.all
 		
 	end
 

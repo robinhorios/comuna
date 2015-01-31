@@ -45,6 +45,6 @@ class CellsController < ApplicationController
 
 	private
 	def cells_params
-		params.require(:cell).permit(:name, :address, :schedule, :host, :week_day, :user_ids)
+		params.require(:cell).permit(:name, :street, :schedule, :host, :week_day, :user_ids)
 	end
 end

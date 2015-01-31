@@ -6,8 +6,7 @@
 		</a>
 		<a href="#" class="list-group-item"><strong>E-mail: </strong><%= @user.email %></a>
 		<a href="#" class="list-group-item"><strong>Telefone: </strong><%= @user.phone %></a>
-		<a href="#" class="list-group-item"><strong>Operadora: </strong><%= @user.operator %></a>
-		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @user.address %></a>
+		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @user.street %></a>
 		<a href="#" class="list-group-item"><strong>Data de nascimento: </strong><%= @user.date_of_birth %></a>
 		<a href="#" class="list-group-item"><strong>Encargo: </strong><%= @user.role.name %></a>
 		<br>
@@ -18,6 +17,7 @@
 
 	</div>
 	<hr/>
+	<%= link_to "Editar", edit_user_path %>
 	<%= link_to "Voltar", :controller => "users", :action => "index" %>
 </div>
 
