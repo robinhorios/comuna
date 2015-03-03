@@ -1,5 +1,5 @@
 class CellsController < ApplicationController
-
+	before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
 	def index
 		@cell = Cell.all
 	end
@@ -27,7 +27,7 @@ class CellsController < ApplicationController
 	end
 
 	def update
-		@cell = Cell.new(params[:id])
+		@cell = current_user.cells.find(params[:id])
 
 		if @cell.update_attributes(cells_params)
 			redirect_to(action: "show", id: @cell)

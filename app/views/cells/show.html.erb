@@ -8,6 +8,7 @@
 		<a href="#" class="list-group-item"><strong>Horário: </strong><%= @cell.schedule %></a>
 		<a href="#" class="list-group-item"><strong>Anfitrião: </strong><%= @cell.host %></a>
 		<a href="#" class="list-group-item"><strong>Dia da semana: </strong><%= @cell.week_day %></a>
+		<a href="#" class="list-group-item"><strong>Categoria: </strong><%= @cell.category %></a>
 		
 
 	</div>
@@ -18,16 +19,16 @@
 		</a>
 
 		<% @cell.users.each do |user| %>
-			<% if user.role.name == "Supervisor" %>
+			<% if user.role == User::Supervisor %>
 				<a href="#" class="list-group-item"><strong>Supervisor(a): </strong><%= user.name %></a>
 			<% end %>
-			<% if user.role.name == "Líder" %>
+			<% if user.role == User::Leader %>
 				<a href="#" class="list-group-item"><strong>Líder: </strong><%= user.name %></a>
 			<% end %>
-			<% if user.role.name == "Auxiliar" %>
+			<% if user.role == User::Assist %>
 				<a href="#" class="list-group-item"><strong>Auxiliar: </strong><%= user.name %></a>
 			<% end %>
-			<% if user.role.name == "Membro" %>
+			<% if user.role == User::AssistInTraining %>
 				<a href="#" class="list-group-item"><strong>Membro(a): </strong><%= user.name %></a>
 			<% end %>
 		<% end %>

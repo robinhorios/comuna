@@ -1,118 +1,146 @@
-<% if @user.errors.any? %>
-<ul>
-	<% @user.errors.full_messages.each do |msg| %>
-	<li><%= msg %></li>
-	<% end %>
-</ul>
-<% end %>
+
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			
+			
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<% if @user.errors.any? %>
+						<ul>
+							<% @user.errors.full_messages.each do |msg| %>
+							<li><%= msg %></li>
+							<% end %>
+						</ul>
+						<% end %>
 
 
-<div class="container">
-	<%= form_for @user, :html => {:class => "form-horizontal"} do |f| %>
-	<div class="form-group">
-		<%= f.label :name, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :name, {:class => "form-control"} %>	
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :email, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.email_field :email, autofocus: true, class: "form-control"  %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :gender, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :gender, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :phone, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :phone, {:class => "form-control"} %>
-		</div>
-	</div>
-		<div class="form-group">
-		<%= f.label :date_of_birth, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.date_select :date_of_birth, :start_year => 1900, :order => [:day, :month, :year], class: "form-control" %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :zipcode, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :zipcode, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :street, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :street, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :number, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :number, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :complement, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :complement, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :city, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :city, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :state, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.select(:state_id, @states.collect {|s| [s.name, s.id]},{}, { :class => 'form-control' })%>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :password, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-		</div>
+						<%= form_for @user, :html => {:role => "form"} do |f| %>
+						<div class="form-group">
+							<%= f.label :name %>
 
-	</div>
-	<div class="form-group">
-		<%= f.label :password_confirmation, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
-		</div>
+							<%= f.text_field :name, {:class => "form-control"} %>	
+						</div>
+						<div class="form-group">
+							<%= f.label :email %>
 
-	</div>
-	
-	<div class="form-group">
-		<%= f.label :cell_ids %>
-		<br>
-		<% Cell.all.each do |cell| %>
-		<%= check_box_tag "user[cell_ids][]", cell.id, @user.cell_ids.include?(cell.id), id: dom_id(cell) %>
-		<%= label_tag dom_id(cell), cell.name %><br>
-		<% end %>
-	</div>
+							<%= f.email_field :email, autofocus: true, class: "form-control"  %>
+						</div>
+						<div class="form-group">
+							<%= f.label :gender %>
 
-	<div class="form-group">
-		<%= f.label :role_id, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.select(:role_id, @roles.collect {|s| [s.name, s.id]},{}, { :class => 'form-control' })%>
-			<br/>
-			<br/>
-			<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
+							<%= f.select(:gender, ['Masculino', 'Feminino'], {}, { :class => 'form-control' }) %>
+						</div>
+						<div class="form-group">
+							<%= f.label :phone %>
+
+							<%= f.text_field :phone, {:class => "form-control phone"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :date_of_birth %>
+
+							<%= f.text_field :date_of_birth, {:class => "form-control date"} %>
+
+						</div>
+						<div class="form-group">
+							<%= f.label :zipcode %>
+
+							<%= f.text_field :zipcode, {:class => "form-control zipcode"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :street %>
+
+							<%= f.text_field :street, {:class => "form-control street"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :number %>
+
+							<%= f.text_field :number, {:class => "form-control"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :complement %>
+
+							<%= f.text_field :complement, {:class => "form-control"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :city %>
+
+							<%= f.text_field :city, {:class => "form-control city"} %>
+						</div>
+						<div class="form-group">
+							<%= f.label :state %>
+
+							<%= f.select(:state_id, @states.collect {|s| [s.name, s.id]},{}, { :class => 'form-control state' })%>
+						</div>
+						<% if @users != nil %>
+						<div class="form-group">
+							<%= f.label :spouse_id %>
+
+							<%= f.select :spouse_id, @users.collect {|s| [s.name, s.id]}.unshift("Solteiro"), {}, {:class => "multiple-select form-control"} %>
+
+						</div>
+						<% end %>
+						<div class="form-group">
+							<%= f.label :password %>
+
+							<%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+
+						</div>
+
+						<div class="form-group">
+							<%= f.label :cell_ids %>
+							<br>
+							<% Cell.all.each do |cell| %>
+							<%= check_box_tag "user[cell_ids][]", cell.id, @user.cell_ids.include?(cell.id), id: dom_id(cell) %>
+							<%= label_tag dom_id(cell), cell.name %><br>
+							<% end %>
+						</div>
+
+						<div class="checkbox">
+						<h5><strong>Encargos</strong></h5>
+							<label class="checkbox-inline">
+							<%= f.check_box :admin %> Admin
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :district_supervisor %> Supervisor de Distrito
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :area_supervisor %> Supervisor de Área
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :supervisor %> Supervisor
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :leader %> Líder
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :assist %> Auxiliar
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :assist_in_training %> Auxiliar em treinamento
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :member %> Membro
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :member_away %> Membro afastado
+							</label>
+							<label class="checkbox-inline">
+								<%= f.check_box :visitor %> Visitante
+							</label>
+
+						</div>
+							<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
+						<% end %>
+						<hr/>
+						<%= link_to "Voltar", :controller => "users", :action => "index" %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<% end %>
-	<hr/>
-	<%= link_to "Voltar", :controller => "users", :action => "index" %>
 </div>
-
 
 
 

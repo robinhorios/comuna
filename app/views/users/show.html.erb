@@ -1,19 +1,23 @@
-<h1>Perfil do Usuário</h1>
+<div class="row">
+	<div class="col-lg-12">
+		<h1 class="page-header">Perfil</h1>
+	</div>
+	<!-- /.col-lg-12 -->
+</div>
 <div class="container">
 	<div class="list-group">
 		<a href="#" class="list-group-item active">
 			<strong>Nome: </strong><%= @user.name %>
 		</a>
 		<a href="#" class="list-group-item"><strong>E-mail: </strong><%= @user.email %></a>
+		<a href="#" class="list-group-item"><strong>Conjuge: </strong><%= @user.my_spose %></a>
 		<a href="#" class="list-group-item"><strong>Telefone: </strong><%= @user.phone %></a>
 		<a href="#" class="list-group-item"><strong>Endereço: </strong><%= @user.street %></a>
 		<a href="#" class="list-group-item"><strong>Data de nascimento: </strong><%= @user.date_of_birth %></a>
-		<a href="#" class="list-group-item"><strong>Encargo: </strong><%= @user.role.name %></a>
+		<a href="#" class="list-group-item"><strong>Encargo: </strong><%= @user.role %></a>
 		<br>
 		<p><strong>Células</strong></p>
-		<% @user.cells.each do |cell| %>
-			<a href="#" class="list-group-item"><strong>Nome: </strong><%= cell.name %></a>
-		<% end %>
+		<%= render "cells/cell" %>
 
 	</div>
 	<hr/>

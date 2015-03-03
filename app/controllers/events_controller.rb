@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
 	def index
-		@events = Event.all
+		@events = current_user.events
 	end
 
 	def show
@@ -9,7 +9,7 @@ class EventsController < ApplicationController
 
 	def new
 		@event = Event.new
-		@users = User.all
+		@users = view_context.my_users
 	end
 
 	def create

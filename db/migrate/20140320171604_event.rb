@@ -4,6 +4,7 @@ class Event < ActiveRecord::Migration
   		t.string :name
   		t.string :event_day
   		t.string :schedule
+  		t.timestamps
   	end
   end
 end

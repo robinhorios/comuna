@@ -2,15 +2,45 @@
 <html>
 <head>
 	<title>Comuna</title>
-	<%= stylesheet_link_tag    "application", :media => "all" %>
-	<%= javascript_include_tag "application" %>
+	<%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
 	<link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/select2.min.css" />
 	<%= csrf_meta_tags %>
 </head>
 <body>
-	<p class="notice"><%= notice %></p>
-	<p class="alert"><%= alert %></p>
-	<%= yield %>
+	<div id="wrapper">
+		
+		
 
+		<% if user_signed_in? %>
+		<%= render 'layouts/user_navbar' %>
+		<% else %>
+		<%= render 'layouts/visitor_navbar' %>
+		<% end %>
+		
+
+		<div id="page-wrapper">
+			<% if notice.present? %>
+			<div class="alert alert-success">
+                <%= notice %>. <a href="#" class="alert-link">Alert Link</a>.
+            </div>
+			<p id="notice"></p>
+			<% end %>
+			<% if alert.present? %>
+				<div class="alert alert-success">
+                <%= alert %>. <a href="#" class="alert-link">Alert Link</a>.
+            </div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</div>
+	<%= javascript_include_tag 'bootstrap-datepicker' %>
+	<%= javascript_include_tag 'jquery.mask.min' %>
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/metisMenu/1.1.3/metisMenu.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+	<script src="http://ironsummitmedia.github.io/startbootstrap-sb-admin-2/dist/js/sb-admin-2.js"></script>
 </body>
 </html>

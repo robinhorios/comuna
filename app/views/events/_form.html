@@ -1,37 +1,45 @@
-<div class="container">
-	<%= form_for @event, :html => {:class => "form-horizontal"} do |f| %>
-	<div class="form-group">
-		<%= f.label :name, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :name, {:class => "form-control"} %>	
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			
+
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<%= form_for @event, :html => {:role => "form"} do |f| %>
+						<div class="form-group">
+						<%= f.label :name %>
+
+							<%= f.select(:name, ['Encontro da Célula', 'GD','GDD','Culto da Manhã','Culto da Noite','IDE'], {}, { :class => 'form-control' }) %>
+						</div>
+						<div class="form-group">
+						<%= f.label :event_day %>
+
+							<%= f.select(:event_day, ['Segunda', 'Terça','Quarta','Quinta','Sexta','Sábado'], {}, { :class => 'form-control' }) %>
+						</div>
+						<div class="form-group">
+						<%= f.label :schedule %>
+
+							<%= f.text_field :schedule, {:class => "form-control schedule"} %>
+							
+						</div>
+
+						<div class="form-group">
+						<%= f.label :user_ids %>
+
+							<%= f.collection_select :user_ids, @users, :id, :name, {}, {:multiple => true, :class => "multiple-select form-control"} %>
+						</div>
+						<div class="form-group">
+
+							<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
+						</div>
+						<% end %>
+						<hr/>
+						<%= link_to "Voltar", :controller => "events", :action => "index" %>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
-	<div class="form-group">
-		<%= f.label :event_day, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :event_day, {:class => "form-control"} %>
-		</div>
-	</div>
-	<div class="form-group">
-		<%= f.label :schedule, {:class => "col-sm-2 control-label"} %>
-		<div class="col-sm-10">
-			<%= f.text_field :schedule, {:class => "form-control"} %>
-		</div>
-	</div>
-	
-	<div class="form-group">
-	  <%= f.label :user_ids, {:class => "col-sm-2 control-label"} %>
-	  <div class="col-sm-10">
-      	<%= f.collection_select :user_ids, @users, :id, :name, {}, {:multiple => true, :class => "multiple-select form-control"} %>
-      </div>
-	</div>
-	<div class="form-group">
-		<div class="col-sm-10">
-			<%= f.submit 'Enviar', :class => 'btn btn-default'  %>
-		</div>
-	</div>
-	<% end %>
-	<hr/>
-	<%= link_to "Voltar", :controller => "events", :action => "index" %>
 </div>
 

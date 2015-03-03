@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= bootstrap
 //= select-2
+//= dates
 //= require_tree .
+//= bootstrap-datepicker

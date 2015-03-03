@@ -16,11 +16,6 @@ class CreateCells < ActiveRecord::Migration
 
       t.timestamps
     end
-
-    Cell.create! name: 'Éden', street: "Rua Legal", schedule: "17:30", host: "Robinson Rios", week_day: "Sábado"
-    Cell.create! name: 'Ainda', street: "Rua Legal", schedule: "17:30", host: "Kevernilson Lima", week_day: "Sábado"
-    Cell.create! name: 'Hadar', street: "Rua Legal", schedule: "17:30", host: "Rodrigo Coça Coça", week_day: "Sábado"
-    
   end
 
   def down

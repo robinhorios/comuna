@@ -1,26 +1,31 @@
 class UsersController < ApplicationController
+
 	def index
+		# @user = view_context.my_users
 		@user = User.all
+		@cells = current_user.cells
 	end
 
 	def show
 		@user = User.find(params[:id])
+		@cell = current_user.cells
 	end
 
 	def new
 		@user = User.new
+		@users = User.where.not(admin: true)
 		@cell = Cell.all
-		@roles = Role.all
+		@roles = view_context.my_roles
 		@states = State.all
 	end
 
 	def create
 		@user = User.new(user_params)
-		@roles = Role.all
+		@users = User.all
+		@roles = view_context.my_roles
 		@states = State.all
 		
 		if @user.save
-			Signup.confirm_email(@user).deliver
 			redirect_to(action: "show", id: @user)
 		else
 			render action: "new"
@@ -29,12 +34,14 @@ class UsersController < ApplicationController
 
 	def edit
 		@user = User.find(params[:id])
-		@roles = Role.all
+		@users = User.where.not(admin: true)
+		@roles = view_context.my_roles
 		@states = State.all
 		
 	end
 
 	def update
+		@states = State.all
 		params[:user][:cell_ids] ||= []
 		@user = User.find(params[:id])
 		if @user.update_attributes(user_params)
@@ -55,4 +62,20 @@ class UsersController < ApplicationController
 	def user_params
 		params.require(:user).permit!
 	end
-end
+
+	def can_change
+		unless user_signed_in? && current_user == user
+			redirect_to user_path(params[:id])
+		end
+	end
+
+	def user
+		@user ||= User.find(params[:id])
+	end
+
+	def confirmation_email
+		if User::Roles.include?(@user.role) and @user.confirmed? == false
+			Signup.confirm_email(@user).deliver
+		end
+	end
+end 
