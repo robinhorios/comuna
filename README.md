@@ -1,2 +1,2 @@
 # comuna
-Aplicação para gerenciamneto de 
+Aplicação para o gerenciamento de células da Igreja.
