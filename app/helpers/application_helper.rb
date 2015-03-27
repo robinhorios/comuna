@@ -16,7 +16,7 @@ module ApplicationHelper
 		elsif current_user.role == User::Admin
 			not_included = []
 		end
-			
+
 		current_user.cells.each do |cell|
 			cell.users.each do |user|
 				users.push(user) unless not_included.include?(user.role) or users.include?(user) 
@@ -25,39 +25,11 @@ module ApplicationHelper
 		users
 	end
 
-	# def my_users
-	# 	users = []
-	# 	current_user.cells.each do |cell|
-	# 		cell.users.each_with_index do |user, index|
-	# 			if current_user.role == User::Leader
-	# 				not_included = [User::Admin,User::DistrictSupervisor,User::AreaSupervisor]
-	# 				users.push(user) unless not_included.include?(User::Leader) or users.include?(user)
-	# 			elsif current_user.role == User::Assist
-	# 				not_included = [User::Admin,User::DistrictSupervisor,User::AreaSupervisor, User::Leader]
-	# 				users.push(user) unless not_included.include?(User::Supervisor) or users.include?(user)
-	# 			elsif current_user.role == User::Supervisor
-	# 				not_included = [User::Admin,User::DistrictSupervisor,User::AreaSupervisor]
-	# 				users.push(user) unless not_included.include?(User::Supervisor) or users.include?(user)
-	# 			elsif current_user.role == User::AreaSupervisor
-	# 				not_included = [User::Admin,User::DistrictSupervisor]
-	# 				users.push(user) unless not_included.include?(User::AreaSupervisor) or users.include?(user)
-	# 			elsif current_user.role == User::DistrictSupervisor
-	# 				not_included = [User::Admin]
-	# 				users.push(user) unless not_included.include?(User::DistrictSupervisor) or users.include?(user)
-	# 			elsif current_user.role == User::Admin
-	# 				not_included = [""]
-	# 				users.push(user) unless not_included.include?(User::Admin) or users.include?(user)
-	# 			end
-	# 		end
-	# 	end
-	# 	users
-	# end
-
 	def my_roles
 		roles = []
 		if current_user.leader == true 
 			not_included = [User::Admin,User::DistrictSupervisor,User::AreaSupervisor, User::Supervisor]
-			roles.push(User::Leader) unless not_included.include?(User::Leader)
+			roles.push(User::Leader, User::Assist, User::AssistInTraining, User::Member, User::MemberAway, User::Visitant)
 		elsif current_user.supervisor == true
 			not_included = [User::Admin,User::DistrictSupervisor,User::AreaSupervisor]
 			roles.push(User::Supervisor) unless not_included.include?(User::Supervisor)

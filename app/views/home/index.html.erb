@@ -1,1 +1,21 @@
+<% unless user_signed_in? %>
 
+	<div class="starter-template">
+        <h1>
+        	"Uma igreja família,
+        	<br>
+        	vivendo o amor de Cristo,
+        	<br>
+        	alcançando o próximo
+        	<br>
+        	E formando discípulos."
+        </h1>
+        
+      </div>
+      	<div class="col-md-2 col-md-offset-3"></div>
+      		<p>
+      			<%= link_to "Login", new_user_session_path, :class => "btn btn-lg btn-success sign_in_login" %>
+      		</p>
+      	</div>
+      
+<% end %>

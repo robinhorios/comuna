@@ -8,6 +8,18 @@ class Report
 		@user.name
 	end
 
+	def leaders
+		leaders = []
+		@user.cells.each do |cell|
+			cell.users.each do |user|
+				if user.role == User::Leader
+					leaders.push(user)
+				end
+			end
+		end
+		leaders
+	end
+
 	def supervisor
 		@user.cells.each do |cell|
 			cell.users.each do |user|
@@ -63,7 +75,7 @@ class Report
 		now.year - date_of_birth.year - ((now.month > date_of_birth.month || (now.month == date_of_birth.month && now.day >= date_of_birth.day)) ? 0 : 1)
 	end
 
-	def peoples_in_meeting
+	def peoples_in_meeting(user)
 		children_under_11_years = 0
 		adolescents_aged_12_to_14_years = 0
 		adolescents_aged_14_to_17_years = 0
@@ -72,7 +84,7 @@ class Report
 		single_woman = 0
 		wife = 0
 		data_of_meetings = []
-		events = @user.events.where(:created_at => Date.new(Date.today.year, Date.today.month, 1)...Date.new(Date.today.year, Date.today.month, -1))
+		events = user.events.where(:created_at => Date.new(Date.today.year, Date.today.month, 1)...Date.new(Date.today.year, Date.today.month, -1))
 		events.each_with_index do |event, index|
 
 			event.users.each_with_index do |user, index|
@@ -110,6 +122,7 @@ class Report
 								   			married_man
 								   		)
 								  ])
+			
 			children_under_11_years = 0
 			adolescents_aged_12_to_14_years = 0
 			men_singles = 0
@@ -119,6 +132,9 @@ class Report
 
 		end
 		data_of_meetings
+	end
+
+	def average(user)
 	end
 
 end

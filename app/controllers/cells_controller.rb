@@ -1,5 +1,6 @@
 class CellsController < ApplicationController
-	before_action :require_authentication, only: [:new, :edit, :create, :update, :destroy]
+	before_action :authenticate_user!
+	
 	def index
 		@cell = Cell.all
 	end

@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+	before_action :authenticate_user!
+	after_action :confirmation_email, only: [:update]
 
 	def index
 		# @user = view_context.my_users
@@ -69,13 +71,9 @@ class UsersController < ApplicationController
 		end
 	end
 
-	def user
-		@user ||= User.find(params[:id])
-	end
-
 	def confirmation_email
-		if User::Roles.include?(@user.role) and @user.confirmed? == false
-			Signup.confirm_email(@user).deliver
+		if User::ValidRoles.include?(@user.role) and @user.confirmed? == false
+			@user.send_confirmation_instructions
 		end
 	end
 end 
