@@ -16,11 +16,11 @@ ActiveRecord::Schema.define(version: 20150302010404) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "categories", force: true do |t|
+  create_table "categories", force: :cascade do |t|
     t.string "name"
   end
 
-  create_table "cells", force: true do |t|
+  create_table "cells", force: :cascade do |t|
     t.string   "name"
     t.string   "street"
     t.string   "number"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 20150302010404) do
     t.datetime "updated_at"
   end
 
-  create_table "cells_users", force: true do |t|
+  create_table "cells_users", force: :cascade do |t|
     t.integer "cell_id"
     t.integer "user_id"
   end
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 20150302010404) do
   add_index "cells_users", ["cell_id"], name: "index_cells_users_on_cell_id", using: :btree
   add_index "cells_users", ["user_id"], name: "index_cells_users_on_user_id", using: :btree
 
-  create_table "events", force: true do |t|
+  create_table "events", force: :cascade do |t|
     t.string   "name"
     t.string   "event_day"
     t.string   "schedule"
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 20150302010404) do
     t.datetime "updated_at"
   end
 
-  create_table "events_users", force: true do |t|
+  create_table "events_users", force: :cascade do |t|
     t.integer "event_id"
     t.integer "user_id"
   end
@@ -61,12 +61,12 @@ ActiveRecord::Schema.define(version: 20150302010404) do
   add_index "events_users", ["event_id"], name: "index_events_users_on_event_id", using: :btree
   add_index "events_users", ["user_id"], name: "index_events_users_on_user_id", using: :btree
 
-  create_table "states", force: true do |t|
+  create_table "states", force: :cascade do |t|
     t.string "name"
     t.string "acronym"
   end
 
-  create_table "users", force: true do |t|
+  create_table "users", force: :cascade do |t|
     t.string   "name"
     t.datetime "date_of_birth"
     t.string   "street"
