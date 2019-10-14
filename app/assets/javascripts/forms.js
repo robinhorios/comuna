@@ -3,14 +3,16 @@ $(document).ready(function(){
 
 	$('.zipcode').focusout(function(){
 		var zipcode = $(this).val().replace("-", "");
-		var url = "http://cep.correiocontrol.com.br/" + zipcode + ".json"
+            var url = "https://viacep.com.br/ws/" + zipcode + "/json/";
 		var address;
 		$.ajax({
 			url: url,
 			success: function(data) {
+                        console.log(data);
 				address = data;
 				
 			},
+
 
             // beforeSend: function(){
             // 	$('.loader').css({display:"block"});

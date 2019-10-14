@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.8'
+gem 'rails', '4.2.10'
 gem 'pg', '~> 0.18'
 gem 'devise'
 gem "binding_of_caller"
