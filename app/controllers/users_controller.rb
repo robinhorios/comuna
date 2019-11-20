@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
 	def index
 		# @user = view_context.my_users
-		@user = User.all
+		@users = User.all.except(User.where(admin:true))
 		@cells = current_user.cells
 	end
 

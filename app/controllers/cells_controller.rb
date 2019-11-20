@@ -2,7 +2,7 @@ class CellsController < ApplicationController
 	before_action :authenticate_user!
 	
 	def index
-		@cell = Cell.all
+		@cells = Cell.all
 	end
 
 	def show

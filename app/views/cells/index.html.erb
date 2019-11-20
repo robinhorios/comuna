@@ -25,28 +25,23 @@
 							</tr>
 						</thead>
 						<tbody>
-							
-							<% @cell.each_with_index do |cell, index| %>
-							<% if belongs_to_cell(cell) %>
-							
-							
-							<tr>
-								<td><%= cell.name %></td>
-								<td><%= cell.street %></td>
-								<td><%= cell.schedule %></td>
-								<td><%= cell.host %></td>
-								<td><%= cell.week_day %></td>
-								<td><%= my_users.count %></td>
-								<td>
-									<%= link_to "Ver", action: "show", id: cell.id %>
-									<%= link_to "Remove", cell, method: :delete, data: { confirm: "Are you sure?" } %>
-									<%= link_to "Editar", action: "edit", id: cell.id %>
-									<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => cell.id},
-									:confirm => "Are you sure you want to delete this item?" %>
-								</td>
-							</tr>
-							<% end %>
-							<% end %>
+							<% @cells.each do |cell| %>
+									<tr>
+										<td><%= cell.name %></td>
+										<td><%= cell.street %></td>
+										<td><%= cell.schedule %></td>
+										<td><%= cell.host %></td>
+										<td><%= cell.week_day %></td>
+										<td><%= my_users.count %></td>
+										<td>
+											<%= link_to "Ver", action: "show", id: cell.id %>
+											<%= link_to "Remove", cell, method: :delete, data: { confirm: "Are you sure?" } %>
+											<%= link_to "Editar", action: "edit", id: cell.id %>
+											<%= link_to "Delete", {:action => 'destroy', method: "delete", :id => cell.id},
+											:confirm => "Are you sure you want to delete this item?" %>
+										</td>
+									</tr>
+								<% end %>
 						</tbody>
 					</table>
 				</div>
